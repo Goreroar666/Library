@@ -14,18 +14,19 @@ return this.title + " " + "by " + this.author + ", " + this.pages + ", " + this.
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
 
-
+const userInput = document.querySelector(".bookForm");
 function addBooktoLibrary() {
-    let title = document.getElementById("titleName").value;
-    let author = document.getElementById("authorName").value;
-    let pages = document.getElementById("numberOfPages").value;
-    let read = document.getElementById("readYet").value;
-const newBook = new Book(title, author, pages, read);
+    newBook = {
+        title : document.getElementById("titleName").value,
+        author : document.getElementById("authorName").value,
+        pages : document.getElementById("numberOfPages").value,
+        read : document.getElementById("readYet").value,
+    }
 myLibrary.push(newBook);
 console.log(myLibrary);
 };
 
-pushBook.addEventListener('click', addBooktoLibrary());
-pushBook.addEventListener('click', function(event) {
+userInput.addEventListener('click', addBooktoLibrary());
+userInput.addEventListener('click', function(event) {
     event.preventDefault();
 });
