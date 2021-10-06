@@ -1,5 +1,6 @@
-const pushBook = document.getElementById("addBook");
-const submitButton = document.getElementById("addBook");
+const submitButton = document.querySelector("#addBook");
+const userInput = document.querySelector(".bookForm");
+const inputs = document.querySelectorAll('input');
 
 let myLibrary = [];
 
@@ -15,18 +16,20 @@ return this.title + " " + "by " + this.author + ", " + this.pages + ", " + this.
 
 const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
 
-const userInput = document.querySelector(".bookForm");
+
 function addBooktoLibrary() {
-        let title = document.querySelector("#titleName").value;
-        let author = document.querySelector("#authorName").value;
-        let pages = document.querySelector("#numberOfPages").value;
-        let read = document.querySelector("#readYet").value;
-let newBook = new Book(title, author, pages, read);
+let newBook = new Book(
+    document.querySelector("#titleName").value,
+    document.querySelector("#authorName").value,
+    document.querySelector("#numberOfPages").value,
+    document.querySelector("#readYet").value,
+);
 myLibrary.push(newBook);
 console.log(myLibrary);
 };
 
-submitButton.addEventListener('click', addBooktoLibrary());
-submitButton.addEventListener('click', function(event) {
-    event.preventDefault();
+submitButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    addBooktoLibrary();
+    inputs.forEach(input => input.value = '');
 });
