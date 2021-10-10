@@ -1,6 +1,8 @@
 const submitButton = document.querySelector("#addBook");
 const userInput = document.querySelector(".bookForm");
 const inputs = document.querySelectorAll('input');
+const bookShelf = document.querySelector('#bookshelf');
+
 
 let myLibrary = [];
 
@@ -28,8 +30,25 @@ myLibrary.push(newBook);
 console.log(myLibrary);
 };
 
+function displayLibrary() {
+myLibrary.forEach(book => {
+const novel = document.createElement('div');
+const removeButton = document.createElement('button')
+novel.classList.add('addedBook');
+novel.textContent = `Title: ${book.title} \r\n 
+Author: ${book.author} \r\n 
+Number of pages: ${book.pages} \r\n
+Read?: ${book.read} \r\n`;
+removeButton.classList.add('removeBtn');
+removeButton.textContent = 'Remove';
+novel.appendChild(removeButton)
+bookShelf.appendChild(novel); 
+});
+};
+
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     addBooktoLibrary();
+    displayLibrary();
     inputs.forEach(input => input.value = '');
 });
