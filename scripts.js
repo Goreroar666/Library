@@ -41,10 +41,18 @@ Number of pages: ${book.pages} \r\n
 Read?: ${book.read} \r\n`;
 removeButton.classList.add('removeBtn');
 removeButton.textContent = 'Remove';
+removeButton.addEventListener('click', deleteButton);
 novel.appendChild(removeButton)
 bookShelf.appendChild(novel); 
 });
 };
+
+function deleteButton() {
+const booksToRemove = document.getElementsByClassName("addedBook")
+while(booksToRemove.length > 0) {
+    booksToRemove[0].parentNode.removeChild(booksToRemove[0]);
+};
+}
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
