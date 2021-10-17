@@ -31,28 +31,40 @@ console.log(myLibrary);
 };
 
 function displayLibrary() {
+bookShelf.innerHTML = ''; 
 myLibrary.forEach(book => {
 const novel = document.createElement('div');
-const removeButton = document.createElement('button')
+const removeButton = document.createElement('button');
+const readButton = document.createElement('button');
+
 novel.classList.add('addedBook');
 novel.textContent = `Title: ${book.title} \r\n 
 Author: ${book.author} \r\n 
-Number of pages: ${book.pages} \r\n
-Read?: ${book.read} \r\n`;
+Number of pages: ${book.pages} \r\n`;
+
+readButton.classList.add('readBtn');
+if(book.read===false) {
+    readButton.textContent = 'Not read';
+    readButton.style.background = '#B22222';
+} else {
+    readButton.textContent = 'Read';
+    readButton.style.background = '#006400';
+};
+readButton.addEventListener('click', () => {
+    book.read = !book.read;
+    displayLibrary();
+});
+
 removeButton.classList.add('removeBtn');
 removeButton.textContent = 'Remove';
-removeButton.addEventListener('click', deleteButton);
-novel.appendChild(removeButton)
+removeButton.addEventListener('click', deleteBook);
+
+novel.appendChild(readButton);
+novel.appendChild(removeButton);
+
 bookShelf.appendChild(novel); 
 });
 };
-
-function deleteButton() {
-const booksToRemove = document.getElementsByClassName("addedBook")
-while(booksToRemove.length > 0) {
-    booksToRemove[0].parentNode.removeChild(booksToRemove[0]);
-};
-}
 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -60,3 +72,8 @@ submitButton.addEventListener('click', (e) => {
     displayLibrary();
     inputs.forEach(input => input.value = '');
 });
+
+function deleteBook(e) {
+e.target.parentElement.remove();
+myLibrary.splice(e.target, 1);
+}
