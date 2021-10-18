@@ -3,5 +3,95 @@
  border: 1px solid black;
 }
 .bookForm {
-    border: 1px solid black;
+    border: 2px solid black;
 }
+
+body{
+    background-color: #f180c2;
+  }
+  h1 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+  }
+  
+  #bookshelf {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .addedBook {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 5px solid black;
+    border-radius: 25px;
+    height: 330px;
+    width: 250px;
+    padding: 15px;
+    margin: 20px;
+    background-color: #3a98ce;
+    font-size: 30px;
+  }
+  
+  #titleName {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  #authorName {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  
+  #numberOfPages {
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+  .readBtn { 
+    font-size: 20px;
+    height: 35px;
+    width: 110px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: solid 3px black;
+  }
+  .removeBtn {
+    font-size: 20px;
+    height: 35px;
+    width: 110px;
+    border-radius: 10px;
+    border: solid 3px black;
+    background-color: #828485;
+  }
+  #container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 30px;
+  }
+  #bookInput {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    font-size: 30px;
+    border-radius: 10px;
+    border: solid 3px black;
+    margin: 5px;
+  }
+  #readYet {
+    transform: scale(1.5);
+  }
+  #addBook {
+    font-size: 20px;
+    height: 35px;
+    width: 110px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: solid 3px black;
+    display: flex;
+    flex-direction: column;
+  }

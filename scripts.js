@@ -61,7 +61,6 @@ removeButton.addEventListener('click', deleteBook);
 
 novel.appendChild(readButton);
 novel.appendChild(removeButton);
-
 bookShelf.appendChild(novel); 
 });
 };
