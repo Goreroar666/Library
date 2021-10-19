@@ -101,3 +101,8 @@ body{
     margin: auto;
     text-align: center;
   }
+  #footer {
+      font-size: 30px;
+      text-align: center;
+      margin-top: 20px;
+  }
