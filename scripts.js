@@ -1,13 +1,10 @@
-//Globals
 const submitButton = document.querySelector("#addBook");
 const userInput = document.querySelector(".bookForm");
 const inputs = document.querySelectorAll('input');
 const bookShelf = document.querySelector('#bookshelf');
 
-//Array
 let myLibrary = [];
 
-//Constructor
 function Book(title, author, pages, read) {
     this.title = title
     this.author = author
@@ -18,10 +15,6 @@ function Book(title, author, pages, read) {
 };
 };
 
-//Example from exercise
-const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', '295 pages', 'not read yet')
-
-//Functions
 function addBooktoLibrary() {
     let newBook = new Book(
     document.querySelector("#titleName").value,
@@ -76,15 +69,12 @@ function deleteBook(e) {
     setLocalStorage();
 };
 
-//Submit 
 submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     addBooktoLibrary();
     displayLibrary();
-    inputs.forEach(input => input.value = '');
+    document.getElementById("bookInput").reset();
 });
-
-//Local storage functions
 
 function setLocalStorage() {
     localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
